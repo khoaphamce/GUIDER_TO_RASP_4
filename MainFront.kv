@@ -1,0 +1,141 @@
+#:import Factory kivy.factory.Factory
+
+<TabbedPanelItem>
+    font_size: 24
+
+<SpinnerConfig@SpinnerOption>
+    background_color: [1,1,1,1]
+    # text_color: (0,0,0,1)
+
+<TabbedPanelStrip>
+    canvas:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.width, self.height
+    
+
+<WindowManager>
+    # background_color: (1, 1, 1, 1)
+    # background_normal: ''
+    do_default_tab: False
+    tab_pos: 'bottom_mid'
+    tab_size_hint: (0.05, 0.05)
+    tab_width: self.width*0.2
+     
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.width, self.height
+
+    # -------- INSTRUCTION TAB --------
+    TabbedPanelItem:
+        background_color: (1, 1, 1, 1)
+        text: 'HƯỚNG DẪN'
+
+        # normal_background: ''
+        # background_color: (1,1,1,1)
+
+        Label: 
+            text: 'HMU HMU'
+            font_size: 32
+
+    #------- MAP TAB --------
+    TabbedPanelItem:
+        background_color: (1, 1, 1, 1)
+        text: 'BẢN ĐỒ'
+        
+        FloatLayout:
+            size: root.width, root.height
+            canvas.before:
+                Color:
+                    rgba:(1, 1, 1, 1)
+                Rectangle:
+                    pos: self.pos
+                    size:self.size
+            # ------- HEADER --------
+            Label:
+                id: AppName
+                size_hint: (0.1, 0.042)
+                pos_hint: {'y': 0.9, 'x': 0.45}
+                halign: 'center'
+                text_size: None, None
+                allow_stretch: False
+
+                canvas.before:
+                    Rectangle:
+                        pos: self.x - 32, self.y - 10
+                        size: self.width*1.4, self.height*1.7
+                        source: 'Items/TitleFrame.png'
+
+                canvas.after:
+                    Rectangle:
+                        pos: self.x + 6, self.y + 6
+                        size: self.width*1, self.height*1
+                        source: 'Items/Title.png'
+
+           
+            # -------- START BUTTON -----------
+            Button:
+                id: StartButton
+                size_hint: (0.06, 0.06)
+                pos_hint: {'y': 0.89, 'x': 0.29}
+                halign: 'center'
+                text_size: None, None
+                allow_stretch: True
+                background_normal: ''
+                background_color: (1, 1, 1, 0)
+
+                canvas.before:
+                    Rectangle:
+                        pos: self.x, self.y
+                        size: self.width, self.height
+                        source: 'Items/StartButton.png'
+            
+
+            #-------- IMPORT MAP ---------
+            Image:
+                id: MapImage
+                source: 'ToDrawMap/ToDrawMap.jpg'
+                size_hint: (1, 0.8)
+                pos_hint: {'y': 0.05}
+    
+                
+            Spinner:
+                text: 'Điểm bắt đầu...'
+                background_normal : 'Items/Spinner.png'
+                color: (0.4, 0.4, 0.4, 1)
+                font_size: 18
+                values: ['I LOVE YOU', 'I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU',]
+                size_hint: (0.1, 0.04)
+                pos_hint: {'x': 0.01, 'y': 0.9}
+
+            Spinner:
+                text: 'Điểm đến...'
+                color: (0.4, 0.4, 0.4, 1)
+                font_size: 18
+                background_normal : 'Items/Spinner.png'
+                values: ['I LOVE YOU', 'I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU','I LOVE YOU',]
+                size_hint: (0.1, 0.04)
+                pos_hint: {'x': 0.12, 'y': 0.9}
+
+
+            # -------- IMPORT PATH ONLY --------
+            Image:
+                id: PathOnlyImage
+                source: 'PathOnly.png'
+                size_hint: (1, 0.8)
+                pos_hint: {'y': 0.05}
+
+    #-------- INFORMATION -------
+    TabbedPanelItem:
+        background_color: (1, 1, 1, 1)
+        text: 'THÔNG TIN'
+        Label:
+            text: 'MEMEMEMEMEMEMEMEMEMEMEMEME'
+
+
+            
